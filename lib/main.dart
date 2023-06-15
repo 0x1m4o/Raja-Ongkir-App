@@ -1,4 +1,4 @@
-/// Package
+/// Packages/Library
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -8,6 +8,7 @@ import './presentation/home/homepage.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
+  // print(dotenv.env['APIKEY'].runtimeType);
   runApp(const MyApp());
 }
 

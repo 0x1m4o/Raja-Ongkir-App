@@ -518,7 +518,7 @@ class _$ProvinceResponseCopyWithImpl<$Res, $Val extends ProvinceResponse>
   @override
   $Res call({
     Object? query = null,
-    Object? status = freezed,
+    Object? status = null,
     Object? result = null,
   }) {
     return _then(_value.copyWith(
@@ -526,7 +526,7 @@ class _$ProvinceResponseCopyWithImpl<$Res, $Val extends ProvinceResponse>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      status: freezed == status
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
@@ -564,7 +564,7 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? query = null,
-    Object? status = freezed,
+    Object? status = null,
     Object? result = null,
   }) {
     return _then(_$ProvinceDetailResponse(
@@ -572,7 +572,7 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
           ? _value._query
           : query // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      freezed == status
+      null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
@@ -624,7 +624,7 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
         (other.runtimeType == runtimeType &&
             other is _$ProvinceDetailResponse &&
             const DeepCollectionEquality().equals(other._query, _query) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
+            (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._result, _result));
   }
 
@@ -633,7 +633,7 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_query),
-      const DeepCollectionEquality().hash(status),
+      status,
       const DeepCollectionEquality().hash(_result));
 
   @JsonKey(ignore: true)
