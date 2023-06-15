@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'province_data.dart';
+part of 'province.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -518,7 +518,7 @@ class _$ProvinceResponseCopyWithImpl<$Res, $Val extends ProvinceResponse>
   @override
   $Res call({
     Object? query = null,
-    Object? status = null,
+    Object? status = freezed,
     Object? result = null,
   }) {
     return _then(_value.copyWith(
@@ -526,7 +526,7 @@ class _$ProvinceResponseCopyWithImpl<$Res, $Val extends ProvinceResponse>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
@@ -564,7 +564,7 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? query = null,
-    Object? status = null,
+    Object? status = freezed,
     Object? result = null,
   }) {
     return _then(_$ProvinceDetailResponse(
@@ -572,7 +572,7 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
           ? _value._query
           : query // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      null == status
+      freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
@@ -624,7 +624,7 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
         (other.runtimeType == runtimeType &&
             other is _$ProvinceDetailResponse &&
             const DeepCollectionEquality().equals(other._query, _query) &&
-            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other._result, _result));
   }
 
@@ -633,7 +633,7 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_query),
-      status,
+      const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(_result));
 
   @JsonKey(ignore: true)

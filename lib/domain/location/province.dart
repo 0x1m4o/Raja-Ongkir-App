@@ -3,8 +3,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'province_data.freezed.dart';
-part 'province_data.g.dart';
+part 'province.freezed.dart';
+part 'province.g.dart';
 
 // Result and Status Section
 @freezed

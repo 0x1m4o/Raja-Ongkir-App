@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'province_data.dart';
+part of 'province.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
