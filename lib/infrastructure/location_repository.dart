@@ -20,8 +20,8 @@ class LocationRepository extends LocationInterface {
     try {
       response = await dio.get('https://api.rajaongkir.com/starter/province',
           options: Options(headers: {"key": dotenv.env['APIKEY']}));
-      final _result = response.data;
-      final data = ProvinceResponse.fromJson(_result);
+      final result = response.data;
+      final data = ProvinceResponse.fromJson(result);
       return right(data);
     } catch (e) {
       return left(e.toString());
