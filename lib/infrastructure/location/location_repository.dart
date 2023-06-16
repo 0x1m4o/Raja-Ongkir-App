@@ -3,11 +3,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 // Pages
 import 'package:raja_ongkir_app/domain/location/location_interface.dart';
 import 'package:raja_ongkir_app/domain/location/province.dart';
 
+@Injectable(as: LocationInterface) 
 class LocationRepository extends LocationInterface {
   Dio dio;
   LocationRepository({

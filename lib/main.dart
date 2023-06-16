@@ -1,6 +1,8 @@
 /// Packages/Library
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:injectable/injectable.dart';
+import 'package:raja_ongkir_app/injection.dart';
 
 /// Presentation
 // Home
@@ -8,7 +10,7 @@ import './presentation/home/homepage.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
-  // print(dotenv.env['APIKEY'].runtimeType);
+  configureInjection(Environment.prod);
   runApp(const MyApp());
 }
 
