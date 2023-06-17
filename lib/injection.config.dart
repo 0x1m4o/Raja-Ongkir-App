@@ -34,7 +34,7 @@ extension GetItInjectableX on _i1.GetIt {
     final dioInjectableModule = _$DioInjectableModule();
     gh.lazySingleton<_i3.Dio>(() => dioInjectableModule.dio);
     gh.factory<_i4.LocationInterface>(
-        () => _i5.LocationRepository(dio: gh<_i3.Dio>()));
+        () => _i5.LocationRepository(gh<_i3.Dio>()));
     gh.factory<_i6.LocationBloc>(
         () => _i6.LocationBloc(gh<_i4.LocationInterface>()));
     return this;

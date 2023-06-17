@@ -38,19 +38,19 @@ mixin _$LocationEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetCityLocation value) getCityLocation,
-    required TResult Function(GetProvincezLocation value) getProvinceLocation,
+    required TResult Function(GetProvinceLocation value) getProvinceLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetCityLocation value)? getCityLocation,
-    TResult? Function(GetProvincezLocation value)? getProvinceLocation,
+    TResult? Function(GetProvinceLocation value)? getProvinceLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetCityLocation value)? getCityLocation,
-    TResult Function(GetProvincezLocation value)? getProvinceLocation,
+    TResult Function(GetProvinceLocation value)? getProvinceLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,7 +144,7 @@ class _$GetCityLocation implements GetCityLocation {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetCityLocation value) getCityLocation,
-    required TResult Function(GetProvincezLocation value) getProvinceLocation,
+    required TResult Function(GetProvinceLocation value) getProvinceLocation,
   }) {
     return getCityLocation(this);
   }
@@ -153,7 +153,7 @@ class _$GetCityLocation implements GetCityLocation {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetCityLocation value)? getCityLocation,
-    TResult? Function(GetProvincezLocation value)? getProvinceLocation,
+    TResult? Function(GetProvinceLocation value)? getProvinceLocation,
   }) {
     return getCityLocation?.call(this);
   }
@@ -162,7 +162,7 @@ class _$GetCityLocation implements GetCityLocation {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetCityLocation value)? getCityLocation,
-    TResult Function(GetProvincezLocation value)? getProvinceLocation,
+    TResult Function(GetProvinceLocation value)? getProvinceLocation,
     required TResult orElse(),
   }) {
     if (getCityLocation != null) {
@@ -177,25 +177,25 @@ abstract class GetCityLocation implements LocationEvent {
 }
 
 /// @nodoc
-abstract class _$$GetProvincezLocationCopyWith<$Res> {
-  factory _$$GetProvincezLocationCopyWith(_$GetProvincezLocation value,
-          $Res Function(_$GetProvincezLocation) then) =
-      __$$GetProvincezLocationCopyWithImpl<$Res>;
+abstract class _$$GetProvinceLocationCopyWith<$Res> {
+  factory _$$GetProvinceLocationCopyWith(_$GetProvinceLocation value,
+          $Res Function(_$GetProvinceLocation) then) =
+      __$$GetProvinceLocationCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetProvincezLocationCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$GetProvincezLocation>
-    implements _$$GetProvincezLocationCopyWith<$Res> {
-  __$$GetProvincezLocationCopyWithImpl(_$GetProvincezLocation _value,
-      $Res Function(_$GetProvincezLocation) _then)
+class __$$GetProvinceLocationCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$GetProvinceLocation>
+    implements _$$GetProvinceLocationCopyWith<$Res> {
+  __$$GetProvinceLocationCopyWithImpl(
+      _$GetProvinceLocation _value, $Res Function(_$GetProvinceLocation) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetProvincezLocation implements GetProvincezLocation {
-  _$GetProvincezLocation();
+class _$GetProvinceLocation implements GetProvinceLocation {
+  _$GetProvinceLocation();
 
   @override
   String toString() {
@@ -205,7 +205,7 @@ class _$GetProvincezLocation implements GetProvincezLocation {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetProvincezLocation);
+        (other.runtimeType == runtimeType && other is _$GetProvinceLocation);
   }
 
   @override
@@ -246,7 +246,7 @@ class _$GetProvincezLocation implements GetProvincezLocation {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetCityLocation value) getCityLocation,
-    required TResult Function(GetProvincezLocation value) getProvinceLocation,
+    required TResult Function(GetProvinceLocation value) getProvinceLocation,
   }) {
     return getProvinceLocation(this);
   }
@@ -255,7 +255,7 @@ class _$GetProvincezLocation implements GetProvincezLocation {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetCityLocation value)? getCityLocation,
-    TResult? Function(GetProvincezLocation value)? getProvinceLocation,
+    TResult? Function(GetProvinceLocation value)? getProvinceLocation,
   }) {
     return getProvinceLocation?.call(this);
   }
@@ -264,7 +264,7 @@ class _$GetProvincezLocation implements GetProvincezLocation {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetCityLocation value)? getCityLocation,
-    TResult Function(GetProvincezLocation value)? getProvinceLocation,
+    TResult Function(GetProvinceLocation value)? getProvinceLocation,
     required TResult orElse(),
   }) {
     if (getProvinceLocation != null) {
@@ -274,8 +274,8 @@ class _$GetProvincezLocation implements GetProvincezLocation {
   }
 }
 
-abstract class GetProvincezLocation implements LocationEvent {
-  factory GetProvincezLocation() = _$GetProvincezLocation;
+abstract class GetProvinceLocation implements LocationEvent {
+  factory GetProvinceLocation() = _$GetProvinceLocation;
 }
 
 /// @nodoc

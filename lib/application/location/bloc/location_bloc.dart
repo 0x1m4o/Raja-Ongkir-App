@@ -16,19 +16,25 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   LocationInterface locationInterface;
   LocationBloc(
     this.locationInterface,
-  ) : super(LocationState.initial());
+  ) : super(LocationState.initial()) {
+    on<GetProvinceLocation>((event, emit) async {
+      emit(LocationState.provinceDataOptions(
+          onLoading: true, dataResponse: none()));
 
-  Stream<LocationState> mapEventState(LocationEvent event) async* {
-    yield* event.map(
-        getProvinceLocation: (value) async* {
-          yield LocationState.provinceDataOptions(
-              onLoading: true, dataResponse: none());
+      final result = await locationInterface.getAllLocation();
 
-          final result = await locationInterface.getAllLocation();
-
-          yield LocationState.provinceDataOptions(
-              onLoading: false, dataResponse: some(result));
-        },
-        getCityLocation: (value) async* {});
+      if (result != null) {
+        emit(LocationState.provinceDataOptions(
+          onLoading: false,
+          dataResponse: some(result),
+        ));
+      } else {
+        // Handle the case when the result is null or has an unexpected type
+        emit(LocationState.provinceDataOptions(
+          onLoading: false,
+          dataResponse: none(),
+        ));
+      }
+    });
   }
 }

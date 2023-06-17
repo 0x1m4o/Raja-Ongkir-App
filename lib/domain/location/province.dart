@@ -1,4 +1,3 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'province.freezed.dart';
@@ -25,9 +24,9 @@ abstract class ProvinceData with _$ProvinceData {
 abstract class ProvinceResponse with _$ProvinceResponse {
   // Query, Status and Result
   factory ProvinceResponse.provinceResponseDetail(
-      List<dynamic> query,
       ProvinceStatusResponse status,
-      List<ProvinceDetailData> result) = ProvinceDetailResponse;
+      List<ProvinceDetailData> results,
+      List<dynamic> query) = ProvinceDetailResponse;
 
   factory ProvinceResponse.fromJson(Map<String, dynamic> json) =>
       _$ProvinceResponseFromJson(json);

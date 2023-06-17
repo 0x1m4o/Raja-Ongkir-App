@@ -444,27 +444,27 @@ ProvinceResponse _$ProvinceResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProvinceResponse {
-  List<dynamic> get query => throw _privateConstructorUsedError;
   ProvinceStatusResponse get status => throw _privateConstructorUsedError;
-  List<ProvinceDetailData> get result => throw _privateConstructorUsedError;
+  List<ProvinceDetailData> get results => throw _privateConstructorUsedError;
+  List<dynamic> get query => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<dynamic> query,
-            ProvinceStatusResponse status, List<ProvinceDetailData> result)
+    required TResult Function(ProvinceStatusResponse status,
+            List<ProvinceDetailData> results, List<dynamic> query)
         provinceResponseDetail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<dynamic> query, ProvinceStatusResponse status,
-            List<ProvinceDetailData> result)?
+    TResult? Function(ProvinceStatusResponse status,
+            List<ProvinceDetailData> results, List<dynamic> query)?
         provinceResponseDetail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<dynamic> query, ProvinceStatusResponse status,
-            List<ProvinceDetailData> result)?
+    TResult Function(ProvinceStatusResponse status,
+            List<ProvinceDetailData> results, List<dynamic> query)?
         provinceResponseDetail,
     required TResult orElse(),
   }) =>
@@ -499,9 +499,9 @@ abstract class $ProvinceResponseCopyWith<$Res> {
       _$ProvinceResponseCopyWithImpl<$Res, ProvinceResponse>;
   @useResult
   $Res call(
-      {List<dynamic> query,
-      ProvinceStatusResponse status,
-      List<ProvinceDetailData> result});
+      {ProvinceStatusResponse status,
+      List<ProvinceDetailData> results,
+      List<dynamic> query});
 }
 
 /// @nodoc
@@ -517,23 +517,23 @@ class _$ProvinceResponseCopyWithImpl<$Res, $Val extends ProvinceResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? query = null,
     Object? status = null,
-    Object? result = null,
+    Object? results = null,
+    Object? query = null,
   }) {
     return _then(_value.copyWith(
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
-      result: null == result
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
+      results: null == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
               as List<ProvinceDetailData>,
+      query: null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ) as $Val);
   }
 }
@@ -547,9 +547,9 @@ abstract class _$$ProvinceDetailResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<dynamic> query,
-      ProvinceStatusResponse status,
-      List<ProvinceDetailData> result});
+      {ProvinceStatusResponse status,
+      List<ProvinceDetailData> results,
+      List<dynamic> query});
 }
 
 /// @nodoc
@@ -563,23 +563,23 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? query = null,
     Object? status = null,
-    Object? result = null,
+    Object? results = null,
+    Object? query = null,
   }) {
     return _then(_$ProvinceDetailResponse(
-      null == query
-          ? _value._query
-          : query // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
       null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
-      null == result
-          ? _value._result
-          : result // ignore: cast_nullable_to_non_nullable
+      null == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
               as List<ProvinceDetailData>,
+      null == query
+          ? _value._query
+          : query // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
@@ -587,13 +587,23 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ProvinceDetailResponse implements ProvinceDetailResponse {
-  _$ProvinceDetailResponse(final List<dynamic> query, this.status,
-      final List<ProvinceDetailData> result)
-      : _query = query,
-        _result = result;
+  _$ProvinceDetailResponse(this.status, final List<ProvinceDetailData> results,
+      final List<dynamic> query)
+      : _results = results,
+        _query = query;
 
   factory _$ProvinceDetailResponse.fromJson(Map<String, dynamic> json) =>
       _$$ProvinceDetailResponseFromJson(json);
+
+  @override
+  final ProvinceStatusResponse status;
+  final List<ProvinceDetailData> _results;
+  @override
+  List<ProvinceDetailData> get results {
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
 
   final List<dynamic> _query;
   @override
@@ -604,18 +614,8 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
   }
 
   @override
-  final ProvinceStatusResponse status;
-  final List<ProvinceDetailData> _result;
-  @override
-  List<ProvinceDetailData> get result {
-    if (_result is EqualUnmodifiableListView) return _result;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_result);
-  }
-
-  @override
   String toString() {
-    return 'ProvinceResponse.provinceResponseDetail(query: $query, status: $status, result: $result)';
+    return 'ProvinceResponse.provinceResponseDetail(status: $status, results: $results, query: $query)';
   }
 
   @override
@@ -623,18 +623,18 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProvinceDetailResponse &&
-            const DeepCollectionEquality().equals(other._query, _query) &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._result, _result));
+            const DeepCollectionEquality().equals(other._results, _results) &&
+            const DeepCollectionEquality().equals(other._query, _query));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_query),
       status,
-      const DeepCollectionEquality().hash(_result));
+      const DeepCollectionEquality().hash(_results),
+      const DeepCollectionEquality().hash(_query));
 
   @JsonKey(ignore: true)
   @override
@@ -646,33 +646,33 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<dynamic> query,
-            ProvinceStatusResponse status, List<ProvinceDetailData> result)
+    required TResult Function(ProvinceStatusResponse status,
+            List<ProvinceDetailData> results, List<dynamic> query)
         provinceResponseDetail,
   }) {
-    return provinceResponseDetail(query, status, result);
+    return provinceResponseDetail(status, results, query);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<dynamic> query, ProvinceStatusResponse status,
-            List<ProvinceDetailData> result)?
+    TResult? Function(ProvinceStatusResponse status,
+            List<ProvinceDetailData> results, List<dynamic> query)?
         provinceResponseDetail,
   }) {
-    return provinceResponseDetail?.call(query, status, result);
+    return provinceResponseDetail?.call(status, results, query);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<dynamic> query, ProvinceStatusResponse status,
-            List<ProvinceDetailData> result)?
+    TResult Function(ProvinceStatusResponse status,
+            List<ProvinceDetailData> results, List<dynamic> query)?
         provinceResponseDetail,
     required TResult orElse(),
   }) {
     if (provinceResponseDetail != null) {
-      return provinceResponseDetail(query, status, result);
+      return provinceResponseDetail(status, results, query);
     }
     return orElse();
   }
@@ -716,19 +716,19 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
 
 abstract class ProvinceDetailResponse implements ProvinceResponse {
   factory ProvinceDetailResponse(
-      final List<dynamic> query,
       final ProvinceStatusResponse status,
-      final List<ProvinceDetailData> result) = _$ProvinceDetailResponse;
+      final List<ProvinceDetailData> results,
+      final List<dynamic> query) = _$ProvinceDetailResponse;
 
   factory ProvinceDetailResponse.fromJson(Map<String, dynamic> json) =
       _$ProvinceDetailResponse.fromJson;
 
   @override
-  List<dynamic> get query;
-  @override
   ProvinceStatusResponse get status;
   @override
-  List<ProvinceDetailData> get result;
+  List<ProvinceDetailData> get results;
+  @override
+  List<dynamic> get query;
   @override
   @JsonKey(ignore: true)
   _$$ProvinceDetailResponseCopyWith<_$ProvinceDetailResponse> get copyWith =>

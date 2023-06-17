@@ -40,17 +40,17 @@ Map<String, dynamic> _$$ProvinceStatusResponseToJson(
 _$ProvinceDetailResponse _$$ProvinceDetailResponseFromJson(
         Map<String, dynamic> json) =>
     _$ProvinceDetailResponse(
-      json['query'] as List<dynamic>,
       ProvinceStatusResponse.fromJson(json['status'] as Map<String, dynamic>),
-      (json['result'] as List<dynamic>)
+      (json['results'] as List<dynamic>)
           .map((e) => ProvinceDetailData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      json['query'] as List<dynamic>,
     );
 
 Map<String, dynamic> _$$ProvinceDetailResponseToJson(
         _$ProvinceDetailResponse instance) =>
     <String, dynamic>{
-      'query': instance.query,
       'status': instance.status,
-      'result': instance.result,
+      'results': instance.results,
+      'query': instance.query,
     };
