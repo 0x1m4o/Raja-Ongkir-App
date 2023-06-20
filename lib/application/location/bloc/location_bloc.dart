@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:raja_ongkir_app/domain/location/location_failure.dart';
 
 import 'package:raja_ongkir_app/domain/location/location_interface.dart';
-import 'package:raja_ongkir_app/domain/location/province.dart';
+import 'package:raja_ongkir_app/domain/location/location.dart';
 
 part 'location_bloc.freezed.dart';
 part 'location_event.dart';
@@ -20,20 +20,40 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   ) : super(LocationState.initial()) {
     on<GetProvinceLocation>((event, emit) async {
       emit(LocationState.provinceDataOptions(
-          onLoading: true, dataResponse: none()));
+          onLoading: true, dataProvince: none()));
 
-      final result = await locationInterface.getAllLocation();
+      final result = await locationInterface.getAllProvinceLocation();
 
       if (result != null) {
         emit(LocationState.provinceDataOptions(
           onLoading: false,
-          dataResponse: some(result),
+          dataProvince: some(result),
         ));
       } else {
         // Handle the case when the result is null or has an unexpected type
         emit(LocationState.provinceDataOptions(
           onLoading: false,
-          dataResponse: none(),
+          dataProvince: none(),
+        ));
+      }
+    });
+
+    on<GetCityLocation>((event, emit) async {
+      emit(LocationState.cityDataOptions(onLoading: true, dataCity: none()));
+
+      final result = await locationInterface.getAllCityLocation(
+          provinceId: event.provinceId);
+
+      if (result != null) {
+        emit(LocationState.cityDataOptions(
+          onLoading: false,
+          dataCity: some(result),
+        ));
+      } else {
+        // Handle the case when the result is null or has an unexpected type
+        emit(LocationState.cityDataOptions(
+          onLoading: false,
+          dataCity: none(),
         ));
       }
     });

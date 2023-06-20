@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dartz/dartz.dart';
 import 'package:raja_ongkir_app/domain/location/location_failure.dart';
 import 'package:raja_ongkir_app/domain/location/location_interface.dart';
-import 'package:raja_ongkir_app/domain/location/province.dart';
+import 'package:raja_ongkir_app/domain/location/location.dart';
 part 'location_cubit.freezed.dart';
 part 'location_state.dart';
 
@@ -18,7 +18,7 @@ class LocationCubit extends Cubit<LocationState> {
     emit(LocationState.provinceDataOptions(
         isLoading: false, dataProvince: none()));
 
-    final response = await locationInterface.getAllLocation();
+    final response = await locationInterface.getAllProvinceLocation();
     
     emit(LocationState.provinceDataOptions(
         isLoading: false, dataProvince: some(response)));

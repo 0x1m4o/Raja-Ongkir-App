@@ -3,7 +3,7 @@ import 'package:flutter_flushbar/flutter_flushbar.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:raja_ongkir_app/application/location/bloc/location_bloc.dart';
-import 'package:raja_ongkir_app/domain/location/province.dart';
+import 'package:raja_ongkir_app/domain/location/location.dart';
 import 'package:raja_ongkir_app/injection.dart';
 
 class LocationPage extends StatefulWidget {
@@ -17,15 +17,16 @@ class _LocationPageState extends State<LocationPage> {
   String? _errMsg;
   ProvinceResponse? _provinceResponse;
   ProvinceDataResponse? _provinceDataResponse;
-  List<DropdownMenuItem<ProvinceDetailData>>? _listprovinceDataResponse;
-  ProvinceDetailData? _selectedProvince;
+  List<DropdownMenuItem<LocationDetailData>>? _listprovinceDataResponse;
+  LocationDetailData? _selectedProvince;
 
   @override
   void initState() {
     _errMsg = '';
     _provinceResponse = null;
     _provinceDataResponse = null;
-    _selectedProvince = null;
+    _selectedProvince =
+        LocationDetailData(provinceID: '12', province: 'Kalimantan Barat');
     super.initState();
   }
 
@@ -46,7 +47,11 @@ class _LocationPageState extends State<LocationPage> {
             body: BlocConsumer<LocationBloc, LocationState>(
                 listener: (context, state) => state.maybeMap(
                       orElse: () {},
-                      provinceDataOptions: (value) => value.dataResponse.fold(
+                      cityDataOptions: (value) => value.dataCity.fold(
+                          () => {},
+                          (valueIsReady) => valueIsReady.fold(
+                              (l) => print(l), (r) => print(r.results.length))),
+                      provinceDataOptions: (value) => value.dataProvince.fold(
                           () => {},
                           (valueIsReady) => valueIsReady.fold((l) {
                                 l.map(
@@ -74,11 +79,14 @@ class _LocationPageState extends State<LocationPage> {
                   return Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),
-                    child: DropdownButton<ProvinceDetailData>(
+                    child: DropdownButton<LocationDetailData>(
                         onChanged: (value) {
                           setState(() {
                             _selectedProvince = value;
                           });
+                          context.read<LocationBloc>().add(
+                              LocationEvent.getCityLocation(
+                                  provinceId: value!.provinceID));
                         },
                         hint: Text('Pilih Provinsi'),
                         value: _selectedProvince,

@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LocationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCityLocation,
+    required TResult Function(String provinceId) getCityLocation,
     required TResult Function() getProvinceLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCityLocation,
+    TResult? Function(String provinceId)? getCityLocation,
     TResult? Function()? getProvinceLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCityLocation,
+    TResult Function(String provinceId)? getCityLocation,
     TResult Function()? getProvinceLocation,
     required TResult orElse(),
   }) =>
@@ -79,6 +79,8 @@ abstract class _$$GetCityLocationCopyWith<$Res> {
   factory _$$GetCityLocationCopyWith(
           _$GetCityLocation value, $Res Function(_$GetCityLocation) then) =
       __$$GetCityLocationCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String provinceId});
 }
 
 /// @nodoc
@@ -88,54 +90,79 @@ class __$$GetCityLocationCopyWithImpl<$Res>
   __$$GetCityLocationCopyWithImpl(
       _$GetCityLocation _value, $Res Function(_$GetCityLocation) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? provinceId = null,
+  }) {
+    return _then(_$GetCityLocation(
+      provinceId: null == provinceId
+          ? _value.provinceId
+          : provinceId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetCityLocation implements GetCityLocation {
-  _$GetCityLocation();
+  _$GetCityLocation({required this.provinceId});
+
+  @override
+  final String provinceId;
 
   @override
   String toString() {
-    return 'LocationEvent.getCityLocation()';
+    return 'LocationEvent.getCityLocation(provinceId: $provinceId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetCityLocation);
+        (other.runtimeType == runtimeType &&
+            other is _$GetCityLocation &&
+            (identical(other.provinceId, provinceId) ||
+                other.provinceId == provinceId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, provinceId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetCityLocationCopyWith<_$GetCityLocation> get copyWith =>
+      __$$GetCityLocationCopyWithImpl<_$GetCityLocation>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCityLocation,
+    required TResult Function(String provinceId) getCityLocation,
     required TResult Function() getProvinceLocation,
   }) {
-    return getCityLocation();
+    return getCityLocation(provinceId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCityLocation,
+    TResult? Function(String provinceId)? getCityLocation,
     TResult? Function()? getProvinceLocation,
   }) {
-    return getCityLocation?.call();
+    return getCityLocation?.call(provinceId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCityLocation,
+    TResult Function(String provinceId)? getCityLocation,
     TResult Function()? getProvinceLocation,
     required TResult orElse(),
   }) {
     if (getCityLocation != null) {
-      return getCityLocation();
+      return getCityLocation(provinceId);
     }
     return orElse();
   }
@@ -173,7 +200,13 @@ class _$GetCityLocation implements GetCityLocation {
 }
 
 abstract class GetCityLocation implements LocationEvent {
-  factory GetCityLocation() = _$GetCityLocation;
+  factory GetCityLocation({required final String provinceId}) =
+      _$GetCityLocation;
+
+  String get provinceId;
+  @JsonKey(ignore: true)
+  _$$GetCityLocationCopyWith<_$GetCityLocation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -214,7 +247,7 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getCityLocation,
+    required TResult Function(String provinceId) getCityLocation,
     required TResult Function() getProvinceLocation,
   }) {
     return getProvinceLocation();
@@ -223,7 +256,7 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCityLocation,
+    TResult? Function(String provinceId)? getCityLocation,
     TResult? Function()? getProvinceLocation,
   }) {
     return getProvinceLocation?.call();
@@ -232,7 +265,7 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCityLocation,
+    TResult Function(String provinceId)? getCityLocation,
     TResult Function()? getProvinceLocation,
     required TResult orElse(),
   }) {
@@ -284,24 +317,33 @@ mixin _$LocationState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
         provinceDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)
+        cityDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -309,18 +351,21 @@ mixin _$LocationState {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
+    required TResult Function(CityDataResponse value) cityDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult? Function(CityDataResponse value)? cityDataOptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult Function(CityDataResponse value)? cityDataOptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -382,8 +427,11 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
         provinceDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)
+        cityDataOptions,
   }) {
     return initial();
   }
@@ -393,8 +441,11 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
   }) {
     return initial?.call();
   }
@@ -404,8 +455,11 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -419,6 +473,7 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
+    required TResult Function(CityDataResponse value) cityDataOptions,
   }) {
     return initial(this);
   }
@@ -428,6 +483,7 @@ class _$Initial implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult? Function(CityDataResponse value)? cityDataOptions,
   }) {
     return initial?.call(this);
   }
@@ -437,6 +493,7 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult Function(CityDataResponse value)? cityDataOptions,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -458,7 +515,7 @@ abstract class _$$ProvinceDataResponseCopyWith<$Res> {
   @useResult
   $Res call(
       {bool onLoading,
-      Option<Either<LocationFailure, ProvinceResponse>> dataResponse});
+      Option<Either<LocationFailure, ProvinceResponse>> dataProvince});
 }
 
 /// @nodoc
@@ -473,16 +530,16 @@ class __$$ProvinceDataResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? onLoading = null,
-    Object? dataResponse = null,
+    Object? dataProvince = null,
   }) {
     return _then(_$ProvinceDataResponse(
       onLoading: null == onLoading
           ? _value.onLoading
           : onLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      dataResponse: null == dataResponse
-          ? _value.dataResponse
-          : dataResponse // ignore: cast_nullable_to_non_nullable
+      dataProvince: null == dataProvince
+          ? _value.dataProvince
+          : dataProvince // ignore: cast_nullable_to_non_nullable
               as Option<Either<LocationFailure, ProvinceResponse>>,
     ));
   }
@@ -491,16 +548,16 @@ class __$$ProvinceDataResponseCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProvinceDataResponse implements ProvinceDataResponse {
-  _$ProvinceDataResponse({required this.onLoading, required this.dataResponse});
+  _$ProvinceDataResponse({required this.onLoading, required this.dataProvince});
 
   @override
   final bool onLoading;
   @override
-  final Option<Either<LocationFailure, ProvinceResponse>> dataResponse;
+  final Option<Either<LocationFailure, ProvinceResponse>> dataProvince;
 
   @override
   String toString() {
-    return 'LocationState.provinceDataOptions(onLoading: $onLoading, dataResponse: $dataResponse)';
+    return 'LocationState.provinceDataOptions(onLoading: $onLoading, dataProvince: $dataProvince)';
   }
 
   @override
@@ -510,12 +567,12 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
             other is _$ProvinceDataResponse &&
             (identical(other.onLoading, onLoading) ||
                 other.onLoading == onLoading) &&
-            (identical(other.dataResponse, dataResponse) ||
-                other.dataResponse == dataResponse));
+            (identical(other.dataProvince, dataProvince) ||
+                other.dataProvince == dataProvince));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, onLoading, dataResponse);
+  int get hashCode => Object.hash(runtimeType, onLoading, dataProvince);
 
   @JsonKey(ignore: true)
   @override
@@ -529,10 +586,13 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
         provinceDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)
+        cityDataOptions,
   }) {
-    return provinceDataOptions(onLoading, dataResponse);
+    return provinceDataOptions(onLoading, dataProvince);
   }
 
   @override
@@ -540,10 +600,13 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
   }) {
-    return provinceDataOptions?.call(onLoading, dataResponse);
+    return provinceDataOptions?.call(onLoading, dataProvince);
   }
 
   @override
@@ -551,12 +614,15 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool onLoading,
-            Option<Either<LocationFailure, ProvinceResponse>> dataResponse)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
     required TResult orElse(),
   }) {
     if (provinceDataOptions != null) {
-      return provinceDataOptions(onLoading, dataResponse);
+      return provinceDataOptions(onLoading, dataProvince);
     }
     return orElse();
   }
@@ -566,6 +632,7 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
+    required TResult Function(CityDataResponse value) cityDataOptions,
   }) {
     return provinceDataOptions(this);
   }
@@ -575,6 +642,7 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult? Function(CityDataResponse value)? cityDataOptions,
   }) {
     return provinceDataOptions?.call(this);
   }
@@ -584,6 +652,7 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult Function(CityDataResponse value)? cityDataOptions,
     required TResult orElse(),
   }) {
     if (provinceDataOptions != null) {
@@ -597,11 +666,177 @@ abstract class ProvinceDataResponse implements LocationState {
   factory ProvinceDataResponse(
       {required final bool onLoading,
       required final Option<Either<LocationFailure, ProvinceResponse>>
-          dataResponse}) = _$ProvinceDataResponse;
+          dataProvince}) = _$ProvinceDataResponse;
 
   bool get onLoading;
-  Option<Either<LocationFailure, ProvinceResponse>> get dataResponse;
+  Option<Either<LocationFailure, ProvinceResponse>> get dataProvince;
   @JsonKey(ignore: true)
   _$$ProvinceDataResponseCopyWith<_$ProvinceDataResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CityDataResponseCopyWith<$Res> {
+  factory _$$CityDataResponseCopyWith(
+          _$CityDataResponse value, $Res Function(_$CityDataResponse) then) =
+      __$$CityDataResponseCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {bool onLoading, Option<Either<LocationFailure, CityResponse>> dataCity});
+}
+
+/// @nodoc
+class __$$CityDataResponseCopyWithImpl<$Res>
+    extends _$LocationStateCopyWithImpl<$Res, _$CityDataResponse>
+    implements _$$CityDataResponseCopyWith<$Res> {
+  __$$CityDataResponseCopyWithImpl(
+      _$CityDataResponse _value, $Res Function(_$CityDataResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? onLoading = null,
+    Object? dataCity = null,
+  }) {
+    return _then(_$CityDataResponse(
+      onLoading: null == onLoading
+          ? _value.onLoading
+          : onLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dataCity: null == dataCity
+          ? _value.dataCity
+          : dataCity // ignore: cast_nullable_to_non_nullable
+              as Option<Either<LocationFailure, CityResponse>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CityDataResponse implements CityDataResponse {
+  _$CityDataResponse({required this.onLoading, required this.dataCity});
+
+  @override
+  final bool onLoading;
+  @override
+  final Option<Either<LocationFailure, CityResponse>> dataCity;
+
+  @override
+  String toString() {
+    return 'LocationState.cityDataOptions(onLoading: $onLoading, dataCity: $dataCity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CityDataResponse &&
+            (identical(other.onLoading, onLoading) ||
+                other.onLoading == onLoading) &&
+            (identical(other.dataCity, dataCity) ||
+                other.dataCity == dataCity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, onLoading, dataCity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CityDataResponseCopyWith<_$CityDataResponse> get copyWith =>
+      __$$CityDataResponseCopyWithImpl<_$CityDataResponse>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
+        provinceDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)
+        cityDataOptions,
+  }) {
+    return cityDataOptions(onLoading, dataCity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
+        provinceDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
+  }) {
+    return cityDataOptions?.call(onLoading, dataCity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
+        provinceDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
+    required TResult orElse(),
+  }) {
+    if (cityDataOptions != null) {
+      return cityDataOptions(onLoading, dataCity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(ProvinceDataResponse value) provinceDataOptions,
+    required TResult Function(CityDataResponse value) cityDataOptions,
+  }) {
+    return cityDataOptions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult? Function(CityDataResponse value)? cityDataOptions,
+  }) {
+    return cityDataOptions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult Function(CityDataResponse value)? cityDataOptions,
+    required TResult orElse(),
+  }) {
+    if (cityDataOptions != null) {
+      return cityDataOptions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CityDataResponse implements LocationState {
+  factory CityDataResponse(
+      {required final bool onLoading,
+      required final Option<Either<LocationFailure, CityResponse>>
+          dataCity}) = _$CityDataResponse;
+
+  bool get onLoading;
+  Option<Either<LocationFailure, CityResponse>> get dataCity;
+  @JsonKey(ignore: true)
+  _$$CityDataResponseCopyWith<_$CityDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

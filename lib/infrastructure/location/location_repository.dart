@@ -8,14 +8,15 @@ import 'package:injectable/injectable.dart';
 // Pages
 import 'package:raja_ongkir_app/domain/location/location_interface.dart';
 import 'package:raja_ongkir_app/domain/location/location_failure.dart';
-import 'package:raja_ongkir_app/domain/location/province.dart';
+import 'package:raja_ongkir_app/domain/location/location.dart';
 
 @Injectable(as: LocationInterface)
 class LocationRepository extends LocationInterface {
   Dio dio;
   LocationRepository(this.dio);
   @override
-  Future<Either<LocationFailure, ProvinceResponse>> getAllLocation() async {
+  Future<Either<LocationFailure, ProvinceResponse>>
+      getAllProvinceLocation() async {
     dio = Dio();
     Response response;
     try {
@@ -33,7 +34,39 @@ class LocationRepository extends LocationInterface {
       switch (e.response!.statusCode) {
         case 400:
           final errorData = e.response!.data['rajaongkir']['status'];
-          final data = ProvinceStatusResponse.fromJson(errorData);
+          final data = LocationStatusResponse.fromJson(errorData);
+          return left(LocationFailure.badRequest(data.description));
+        case 404:
+          return left(LocationFailure.notFound('Not Found'));
+        default:
+          return left(const LocationFailure.serverError());
+      }
+    }
+  }
+
+// City
+  @override
+  Future<Either<LocationFailure, CityResponse>> getAllCityLocation(
+      {required String provinceId}) async {
+    dio = Dio();
+    Response response;
+    try {
+      response = await dio.get(
+        'https://api.rajaongkir.com/starter/city',
+        queryParameters: {"province": "$provinceId"},
+        options: Options(headers: {"key": dotenv.env['APIKEY']}),
+      );
+
+      final result = response.data["rajaongkir"];
+      // print(result);
+      final provinceResponse = CityResponse.fromJson(result);
+
+      return right(provinceResponse);
+    } on DioException catch (e) {
+      switch (e.response!.statusCode) {
+        case 400:
+          final errorData = e.response!.data['rajaongkir']['status'];
+          final data = LocationStatusResponse.fromJson(errorData);
           return left(LocationFailure.badRequest(data.description));
         case 404:
           return left(LocationFailure.notFound('Not Found'));
