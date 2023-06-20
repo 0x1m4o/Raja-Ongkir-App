@@ -57,5 +57,23 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         ));
       }
     });
+    on<GetCost>((event, emit) async {
+      emit(LocationState.costData(onLoading: true, dataCost: none()));
+
+      final result = await locationInterface.getCosts(fromData: event.fromData, toData: event.toData, weight: event.weight, courier: event.courier);
+
+      if (result != null) {
+        emit(LocationState.costData(
+          onLoading: false,
+          dataCost: some(result),
+        ));
+      } else {
+        // Handle the case when the result is null or has an unexpected type
+        emit(LocationState.costData(
+          onLoading: false,
+          dataCost: none(),
+        ));
+      }
+    });
   }
 }

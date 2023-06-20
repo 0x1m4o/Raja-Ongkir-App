@@ -20,18 +20,27 @@ mixin _$LocationEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String provinceId) getCityLocation,
     required TResult Function() getProvinceLocation,
+    required TResult Function(LocationDetailData fromData,
+            LocationDetailData toData, int weight, String courier)
+        getCost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String provinceId)? getCityLocation,
     TResult? Function()? getProvinceLocation,
+    TResult? Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String provinceId)? getCityLocation,
     TResult Function()? getProvinceLocation,
+    TResult Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +48,21 @@ mixin _$LocationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetCityLocation value) getCityLocation,
     required TResult Function(GetProvinceLocation value) getProvinceLocation,
+    required TResult Function(GetCost value) getCost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetCityLocation value)? getCityLocation,
     TResult? Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult? Function(GetCost value)? getCost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetCityLocation value)? getCityLocation,
     TResult Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult Function(GetCost value)? getCost,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +153,9 @@ class _$GetCityLocation implements GetCityLocation {
   TResult when<TResult extends Object?>({
     required TResult Function(String provinceId) getCityLocation,
     required TResult Function() getProvinceLocation,
+    required TResult Function(LocationDetailData fromData,
+            LocationDetailData toData, int weight, String courier)
+        getCost,
   }) {
     return getCityLocation(provinceId);
   }
@@ -150,6 +165,9 @@ class _$GetCityLocation implements GetCityLocation {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String provinceId)? getCityLocation,
     TResult? Function()? getProvinceLocation,
+    TResult? Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
   }) {
     return getCityLocation?.call(provinceId);
   }
@@ -159,6 +177,9 @@ class _$GetCityLocation implements GetCityLocation {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String provinceId)? getCityLocation,
     TResult Function()? getProvinceLocation,
+    TResult Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
     required TResult orElse(),
   }) {
     if (getCityLocation != null) {
@@ -172,6 +193,7 @@ class _$GetCityLocation implements GetCityLocation {
   TResult map<TResult extends Object?>({
     required TResult Function(GetCityLocation value) getCityLocation,
     required TResult Function(GetProvinceLocation value) getProvinceLocation,
+    required TResult Function(GetCost value) getCost,
   }) {
     return getCityLocation(this);
   }
@@ -181,6 +203,7 @@ class _$GetCityLocation implements GetCityLocation {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetCityLocation value)? getCityLocation,
     TResult? Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult? Function(GetCost value)? getCost,
   }) {
     return getCityLocation?.call(this);
   }
@@ -190,6 +213,7 @@ class _$GetCityLocation implements GetCityLocation {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetCityLocation value)? getCityLocation,
     TResult Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult Function(GetCost value)? getCost,
     required TResult orElse(),
   }) {
     if (getCityLocation != null) {
@@ -249,6 +273,9 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   TResult when<TResult extends Object?>({
     required TResult Function(String provinceId) getCityLocation,
     required TResult Function() getProvinceLocation,
+    required TResult Function(LocationDetailData fromData,
+            LocationDetailData toData, int weight, String courier)
+        getCost,
   }) {
     return getProvinceLocation();
   }
@@ -258,6 +285,9 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String provinceId)? getCityLocation,
     TResult? Function()? getProvinceLocation,
+    TResult? Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
   }) {
     return getProvinceLocation?.call();
   }
@@ -267,6 +297,9 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String provinceId)? getCityLocation,
     TResult Function()? getProvinceLocation,
+    TResult Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
     required TResult orElse(),
   }) {
     if (getProvinceLocation != null) {
@@ -280,6 +313,7 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   TResult map<TResult extends Object?>({
     required TResult Function(GetCityLocation value) getCityLocation,
     required TResult Function(GetProvinceLocation value) getProvinceLocation,
+    required TResult Function(GetCost value) getCost,
   }) {
     return getProvinceLocation(this);
   }
@@ -289,6 +323,7 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetCityLocation value)? getCityLocation,
     TResult? Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult? Function(GetCost value)? getCost,
   }) {
     return getProvinceLocation?.call(this);
   }
@@ -298,6 +333,7 @@ class _$GetProvinceLocation implements GetProvinceLocation {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetCityLocation value)? getCityLocation,
     TResult Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult Function(GetCost value)? getCost,
     required TResult orElse(),
   }) {
     if (getProvinceLocation != null) {
@@ -312,6 +348,190 @@ abstract class GetProvinceLocation implements LocationEvent {
 }
 
 /// @nodoc
+abstract class _$$GetCostCopyWith<$Res> {
+  factory _$$GetCostCopyWith(_$GetCost value, $Res Function(_$GetCost) then) =
+      __$$GetCostCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {LocationDetailData fromData,
+      LocationDetailData toData,
+      int weight,
+      String courier});
+}
+
+/// @nodoc
+class __$$GetCostCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$GetCost>
+    implements _$$GetCostCopyWith<$Res> {
+  __$$GetCostCopyWithImpl(_$GetCost _value, $Res Function(_$GetCost) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? fromData = null,
+    Object? toData = null,
+    Object? weight = null,
+    Object? courier = null,
+  }) {
+    return _then(_$GetCost(
+      fromData: null == fromData
+          ? _value.fromData
+          : fromData // ignore: cast_nullable_to_non_nullable
+              as LocationDetailData,
+      toData: null == toData
+          ? _value.toData
+          : toData // ignore: cast_nullable_to_non_nullable
+              as LocationDetailData,
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as int,
+      courier: null == courier
+          ? _value.courier
+          : courier // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetCost implements GetCost {
+  _$GetCost(
+      {required this.fromData,
+      required this.toData,
+      required this.weight,
+      required this.courier});
+
+  @override
+  final LocationDetailData fromData;
+  @override
+  final LocationDetailData toData;
+  @override
+  final int weight;
+  @override
+  final String courier;
+
+  @override
+  String toString() {
+    return 'LocationEvent.getCost(fromData: $fromData, toData: $toData, weight: $weight, courier: $courier)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetCost &&
+            (identical(other.fromData, fromData) ||
+                other.fromData == fromData) &&
+            (identical(other.toData, toData) || other.toData == toData) &&
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.courier, courier) || other.courier == courier));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, fromData, toData, weight, courier);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetCostCopyWith<_$GetCost> get copyWith =>
+      __$$GetCostCopyWithImpl<_$GetCost>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String provinceId) getCityLocation,
+    required TResult Function() getProvinceLocation,
+    required TResult Function(LocationDetailData fromData,
+            LocationDetailData toData, int weight, String courier)
+        getCost,
+  }) {
+    return getCost(fromData, toData, weight, courier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String provinceId)? getCityLocation,
+    TResult? Function()? getProvinceLocation,
+    TResult? Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
+  }) {
+    return getCost?.call(fromData, toData, weight, courier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String provinceId)? getCityLocation,
+    TResult Function()? getProvinceLocation,
+    TResult Function(LocationDetailData fromData, LocationDetailData toData,
+            int weight, String courier)?
+        getCost,
+    required TResult orElse(),
+  }) {
+    if (getCost != null) {
+      return getCost(fromData, toData, weight, courier);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetCityLocation value) getCityLocation,
+    required TResult Function(GetProvinceLocation value) getProvinceLocation,
+    required TResult Function(GetCost value) getCost,
+  }) {
+    return getCost(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetCityLocation value)? getCityLocation,
+    TResult? Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult? Function(GetCost value)? getCost,
+  }) {
+    return getCost?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetCityLocation value)? getCityLocation,
+    TResult Function(GetProvinceLocation value)? getProvinceLocation,
+    TResult Function(GetCost value)? getCost,
+    required TResult orElse(),
+  }) {
+    if (getCost != null) {
+      return getCost(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCost implements LocationEvent {
+  factory GetCost(
+      {required final LocationDetailData fromData,
+      required final LocationDetailData toData,
+      required final int weight,
+      required final String courier}) = _$GetCost;
+
+  LocationDetailData get fromData;
+  LocationDetailData get toData;
+  int get weight;
+  String get courier;
+  @JsonKey(ignore: true)
+  _$$GetCostCopyWith<_$GetCost> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -322,6 +542,9 @@ mixin _$LocationState {
     required TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)
         cityDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)
+        costData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -333,6 +556,9 @@ mixin _$LocationState {
     TResult? Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -344,6 +570,9 @@ mixin _$LocationState {
     TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -352,6 +581,7 @@ mixin _$LocationState {
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
     required TResult Function(CityDataResponse value) cityDataOptions,
+    required TResult Function(CostDataResponse value) costData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -359,6 +589,7 @@ mixin _$LocationState {
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult? Function(CityDataResponse value)? cityDataOptions,
+    TResult? Function(CostDataResponse value)? costData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -366,6 +597,7 @@ mixin _$LocationState {
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult Function(CityDataResponse value)? cityDataOptions,
+    TResult Function(CostDataResponse value)? costData,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -432,6 +664,9 @@ class _$Initial implements Initial {
     required TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)
         cityDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)
+        costData,
   }) {
     return initial();
   }
@@ -446,6 +681,9 @@ class _$Initial implements Initial {
     TResult? Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
   }) {
     return initial?.call();
   }
@@ -460,6 +698,9 @@ class _$Initial implements Initial {
     TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -474,6 +715,7 @@ class _$Initial implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
     required TResult Function(CityDataResponse value) cityDataOptions,
+    required TResult Function(CostDataResponse value) costData,
   }) {
     return initial(this);
   }
@@ -484,6 +726,7 @@ class _$Initial implements Initial {
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult? Function(CityDataResponse value)? cityDataOptions,
+    TResult? Function(CostDataResponse value)? costData,
   }) {
     return initial?.call(this);
   }
@@ -494,6 +737,7 @@ class _$Initial implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult Function(CityDataResponse value)? cityDataOptions,
+    TResult Function(CostDataResponse value)? costData,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -591,6 +835,9 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
     required TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)
         cityDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)
+        costData,
   }) {
     return provinceDataOptions(onLoading, dataProvince);
   }
@@ -605,6 +852,9 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
     TResult? Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
   }) {
     return provinceDataOptions?.call(onLoading, dataProvince);
   }
@@ -619,6 +869,9 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
     TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
     required TResult orElse(),
   }) {
     if (provinceDataOptions != null) {
@@ -633,6 +886,7 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
     required TResult Function(CityDataResponse value) cityDataOptions,
+    required TResult Function(CostDataResponse value) costData,
   }) {
     return provinceDataOptions(this);
   }
@@ -643,6 +897,7 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult? Function(CityDataResponse value)? cityDataOptions,
+    TResult? Function(CostDataResponse value)? costData,
   }) {
     return provinceDataOptions?.call(this);
   }
@@ -653,6 +908,7 @@ class _$ProvinceDataResponse implements ProvinceDataResponse {
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult Function(CityDataResponse value)? cityDataOptions,
+    TResult Function(CostDataResponse value)? costData,
     required TResult orElse(),
   }) {
     if (provinceDataOptions != null) {
@@ -757,6 +1013,9 @@ class _$CityDataResponse implements CityDataResponse {
     required TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)
         cityDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)
+        costData,
   }) {
     return cityDataOptions(onLoading, dataCity);
   }
@@ -771,6 +1030,9 @@ class _$CityDataResponse implements CityDataResponse {
     TResult? Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
   }) {
     return cityDataOptions?.call(onLoading, dataCity);
   }
@@ -785,6 +1047,9 @@ class _$CityDataResponse implements CityDataResponse {
     TResult Function(bool onLoading,
             Option<Either<LocationFailure, CityResponse>> dataCity)?
         cityDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
     required TResult orElse(),
   }) {
     if (cityDataOptions != null) {
@@ -799,6 +1064,7 @@ class _$CityDataResponse implements CityDataResponse {
     required TResult Function(Initial value) initial,
     required TResult Function(ProvinceDataResponse value) provinceDataOptions,
     required TResult Function(CityDataResponse value) cityDataOptions,
+    required TResult Function(CostDataResponse value) costData,
   }) {
     return cityDataOptions(this);
   }
@@ -809,6 +1075,7 @@ class _$CityDataResponse implements CityDataResponse {
     TResult? Function(Initial value)? initial,
     TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult? Function(CityDataResponse value)? cityDataOptions,
+    TResult? Function(CostDataResponse value)? costData,
   }) {
     return cityDataOptions?.call(this);
   }
@@ -819,6 +1086,7 @@ class _$CityDataResponse implements CityDataResponse {
     TResult Function(Initial value)? initial,
     TResult Function(ProvinceDataResponse value)? provinceDataOptions,
     TResult Function(CityDataResponse value)? cityDataOptions,
+    TResult Function(CostDataResponse value)? costData,
     required TResult orElse(),
   }) {
     if (cityDataOptions != null) {
@@ -838,5 +1106,183 @@ abstract class CityDataResponse implements LocationState {
   Option<Either<LocationFailure, CityResponse>> get dataCity;
   @JsonKey(ignore: true)
   _$$CityDataResponseCopyWith<_$CityDataResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CostDataResponseCopyWith<$Res> {
+  factory _$$CostDataResponseCopyWith(
+          _$CostDataResponse value, $Res Function(_$CostDataResponse) then) =
+      __$$CostDataResponseCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {bool onLoading, Option<Either<LocationFailure, CostResponse>> dataCost});
+}
+
+/// @nodoc
+class __$$CostDataResponseCopyWithImpl<$Res>
+    extends _$LocationStateCopyWithImpl<$Res, _$CostDataResponse>
+    implements _$$CostDataResponseCopyWith<$Res> {
+  __$$CostDataResponseCopyWithImpl(
+      _$CostDataResponse _value, $Res Function(_$CostDataResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? onLoading = null,
+    Object? dataCost = null,
+  }) {
+    return _then(_$CostDataResponse(
+      onLoading: null == onLoading
+          ? _value.onLoading
+          : onLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dataCost: null == dataCost
+          ? _value.dataCost
+          : dataCost // ignore: cast_nullable_to_non_nullable
+              as Option<Either<LocationFailure, CostResponse>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CostDataResponse implements CostDataResponse {
+  _$CostDataResponse({required this.onLoading, required this.dataCost});
+
+  @override
+  final bool onLoading;
+  @override
+  final Option<Either<LocationFailure, CostResponse>> dataCost;
+
+  @override
+  String toString() {
+    return 'LocationState.costData(onLoading: $onLoading, dataCost: $dataCost)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CostDataResponse &&
+            (identical(other.onLoading, onLoading) ||
+                other.onLoading == onLoading) &&
+            (identical(other.dataCost, dataCost) ||
+                other.dataCost == dataCost));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, onLoading, dataCost);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CostDataResponseCopyWith<_$CostDataResponse> get copyWith =>
+      __$$CostDataResponseCopyWithImpl<_$CostDataResponse>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
+        provinceDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)
+        cityDataOptions,
+    required TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)
+        costData,
+  }) {
+    return costData(onLoading, dataCost);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
+        provinceDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
+    TResult? Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
+  }) {
+    return costData?.call(onLoading, dataCost);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
+        provinceDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CityResponse>> dataCity)?
+        cityDataOptions,
+    TResult Function(bool onLoading,
+            Option<Either<LocationFailure, CostResponse>> dataCost)?
+        costData,
+    required TResult orElse(),
+  }) {
+    if (costData != null) {
+      return costData(onLoading, dataCost);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(ProvinceDataResponse value) provinceDataOptions,
+    required TResult Function(CityDataResponse value) cityDataOptions,
+    required TResult Function(CostDataResponse value) costData,
+  }) {
+    return costData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult? Function(CityDataResponse value)? cityDataOptions,
+    TResult? Function(CostDataResponse value)? costData,
+  }) {
+    return costData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ProvinceDataResponse value)? provinceDataOptions,
+    TResult Function(CityDataResponse value)? cityDataOptions,
+    TResult Function(CostDataResponse value)? costData,
+    required TResult orElse(),
+  }) {
+    if (costData != null) {
+      return costData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CostDataResponse implements LocationState {
+  factory CostDataResponse(
+      {required final bool onLoading,
+      required final Option<Either<LocationFailure, CostResponse>>
+          dataCost}) = _$CostDataResponse;
+
+  bool get onLoading;
+  Option<Either<LocationFailure, CostResponse>> get dataCost;
+  @JsonKey(ignore: true)
+  _$$CostDataResponseCopyWith<_$CostDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

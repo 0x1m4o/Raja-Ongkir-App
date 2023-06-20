@@ -11,4 +11,8 @@ abstract class LocationState with _$LocationState {
           {required bool onLoading,
           required Option<Either<LocationFailure, CityResponse>> dataCity}) =
       CityDataResponse;
+  factory LocationState.costData(
+          {required bool onLoading,
+          required Option<Either<LocationFailure, CostResponse>> dataCost}) =
+      CostDataResponse;
 }

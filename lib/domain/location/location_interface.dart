@@ -7,4 +7,7 @@ abstract class LocationInterface {
 
   Future<Either<LocationFailure, CityResponse>> getAllCityLocation(
       {required String provinceId});
+
+  Future<Either<LocationFailure, CostResponse>> getCosts(
+      {required LocationDetailData fromData,required LocationDetailData toData, required int weight, required String courier});
 }

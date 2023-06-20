@@ -59,9 +59,48 @@ class LocationRepository extends LocationInterface {
 
       final result = response.data["rajaongkir"];
       // print(result);
-      final provinceResponse = CityResponse.fromJson(result);
+      final cityResponse = CityResponse.fromJson(result);
 
-      return right(provinceResponse);
+      return right(cityResponse);
+    } on DioException catch (e) {
+      switch (e.response!.statusCode) {
+        case 400:
+          final errorData = e.response!.data['rajaongkir']['status'];
+          final data = LocationStatusResponse.fromJson(errorData);
+          return left(LocationFailure.badRequest(data.description));
+        case 404:
+          return left(LocationFailure.notFound('Not Found'));
+        default:
+          return left(const LocationFailure.serverError());
+      }
+    }
+  }
+
+  @override
+  Future<Either<LocationFailure, CostResponse>> getCosts(
+      {required LocationDetailData fromData,
+      required LocationDetailData toData,
+      required int weight,
+      required String courier}) async {
+    dio = Dio();
+    Response response;
+    try {
+      response = await dio.post(
+        'https://api.rajaongkir.com/starter/cost',
+        data: {
+          "origin": fromData.cityID.toString(),
+          "destination": toData.cityID.toString(),
+          "weight": weight.toString(),
+          "courier": courier
+        },
+        options: Options(headers: {"key": dotenv.env['APIKEY']}),
+      );
+
+      final result = response.data["rajaongkir"];
+      // print(result);
+      final costResponse = CostResponse.fromJson(result);
+
+      return right(costResponse);
     } on DioException catch (e) {
       switch (e.response!.statusCode) {
         case 400:

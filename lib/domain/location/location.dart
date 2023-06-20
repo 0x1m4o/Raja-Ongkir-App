@@ -20,11 +20,29 @@ abstract class LocationData with _$LocationData {
   factory LocationData.locationstatusResponse(int code, String description) =
       LocationStatusResponse;
 
+  // Cost
+  factory LocationData.cost(
+      {@Default(0) int value,
+      @Default("") String etd,
+      @Default("") String note}) = Cost;
+
+  factory LocationData.costs(
+      {@Default("") String service,
+      @Default("") String description,
+      @Default([]) List<Cost> cost}) = Costs;
+
+  factory LocationData.costsResults(
+      {@Default("") String code,
+      @Default("") String name,
+      @Default([]) List<Costs> costs}) = CostsResults;
+
   factory LocationData.fromJson(Map<String, dynamic> json) =>
       _$LocationDataFromJson(json);
 }
 
 // All Response section
+
+// ProvinceResponse
 @freezed
 abstract class ProvinceResponse with _$ProvinceResponse {
   // Query, Status and Result
@@ -37,7 +55,8 @@ abstract class ProvinceResponse with _$ProvinceResponse {
       _$ProvinceResponseFromJson(json);
 }
 
-// All Response section
+// CityResponse
+
 @freezed
 abstract class CityResponse with _$CityResponse {
   // Query, Status and Result
@@ -46,4 +65,15 @@ abstract class CityResponse with _$CityResponse {
 
   factory CityResponse.fromJson(Map<String, dynamic> json) =>
       _$CityResponseFromJson(json);
+}
+
+// CostResponse
+@freezed
+abstract class CostResponse with _$CostResponse {
+  // Query, Status and Result
+  factory CostResponse.costResponseDetail(LocationStatusResponse status,
+      List<CostsResults> results, dynamic query) = CostDetailResponse;
+
+  factory CostResponse.fromJson(Map<String, dynamic> json) =>
+      _$CostResponseFromJson(json);
 }

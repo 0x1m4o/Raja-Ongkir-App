@@ -22,8 +22,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRoute().pages,
-    );
+    return BlocProvider(
+        create: (context) => getIt<LocationBloc>(),
+        child: MaterialApp.router(
+          routerConfig: AppRoute().pages,
+        ));
   }
 }
