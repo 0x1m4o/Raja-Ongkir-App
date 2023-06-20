@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 
 // Pages
 import 'package:raja_ongkir_app/domain/location/location_interface.dart';
+import 'package:raja_ongkir_app/domain/location/location_failure.dart';
 import 'package:raja_ongkir_app/domain/location/province.dart';
 
 @Injectable(as: LocationInterface)
@@ -14,28 +15,31 @@ class LocationRepository extends LocationInterface {
   Dio dio;
   LocationRepository(this.dio);
   @override
-  @override
-  Future<Either<String, ProvinceResponse>> getAllLocation() async {
+  Future<Either<LocationFailure, ProvinceResponse>> getAllLocation() async {
+    dio = Dio();
+    Response response;
     try {
-      Response response = await dio.get(
+      response = await dio.get(
         'https://api.rajaongkir.com/starter/province',
-        options: Options(headers: {"key": 'fd37fe6f94f37e84d32f6230cc76b324'}),
+        options: Options(headers: {"key": dotenv.env['APIKEY']}),
       );
 
       final result = response.data["rajaongkir"];
       // print(result);
-      if (result != null) {
-        final provinceResponse = ProvinceResponse.fromJson(result);
-        print(provinceResponse.results
-            .map((ProvinceDetailData detail) => detail.province));
-        print(provinceResponse.status.code);
-        return right(provinceResponse);
-      } else {
-        return left("API response is null");
+      final provinceResponse = ProvinceResponse.fromJson(result);
+
+      return right(provinceResponse);
+    } on DioException catch (e) {
+      switch (e.response!.statusCode) {
+        case 400:
+          final errorData = e.response!.data['rajaongkir']['status'];
+          final data = ProvinceStatusResponse.fromJson(errorData);
+          return left(LocationFailure.badRequest(data.description));
+        case 404:
+          return left(LocationFailure.notFound('Not Found'));
+        default:
+          return left(const LocationFailure.serverError());
       }
-    } catch (e) {
-      print(e.toString());
-      return left(e.toString());
     }
   }
 }

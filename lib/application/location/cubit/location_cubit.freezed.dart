@@ -20,7 +20,7 @@ mixin _$LocationState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
         provinceDataOptions,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LocationState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$LocationState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
         provinceDataOptions,
   }) {
     return initial();
@@ -130,7 +130,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
   }) {
     return initial?.call();
@@ -141,7 +141,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
     required TResult orElse(),
   }) {
@@ -194,7 +194,8 @@ abstract class _$$_ProvinceDataOptionsCopyWith<$Res> {
       __$$_ProvinceDataOptionsCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {bool isLoading, Option<Either<String, ProvinceResponse>> dataProvince});
+      {bool isLoading,
+      Option<Either<LocationFailure, ProvinceResponse>> dataProvince});
 }
 
 /// @nodoc
@@ -219,7 +220,7 @@ class __$$_ProvinceDataOptionsCopyWithImpl<$Res>
       dataProvince: null == dataProvince
           ? _value.dataProvince
           : dataProvince // ignore: cast_nullable_to_non_nullable
-              as Option<Either<String, ProvinceResponse>>,
+              as Option<Either<LocationFailure, ProvinceResponse>>,
     ));
   }
 }
@@ -232,7 +233,7 @@ class _$_ProvinceDataOptions implements _ProvinceDataOptions {
   @override
   final bool isLoading;
   @override
-  final Option<Either<String, ProvinceResponse>> dataProvince;
+  final Option<Either<LocationFailure, ProvinceResponse>> dataProvince;
 
   @override
   String toString() {
@@ -265,7 +266,7 @@ class _$_ProvinceDataOptions implements _ProvinceDataOptions {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)
         provinceDataOptions,
   }) {
     return provinceDataOptions(isLoading, dataProvince);
@@ -276,7 +277,7 @@ class _$_ProvinceDataOptions implements _ProvinceDataOptions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
   }) {
     return provinceDataOptions?.call(isLoading, dataProvince);
@@ -287,7 +288,7 @@ class _$_ProvinceDataOptions implements _ProvinceDataOptions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(bool isLoading,
-            Option<Either<String, ProvinceResponse>> dataProvince)?
+            Option<Either<LocationFailure, ProvinceResponse>> dataProvince)?
         provinceDataOptions,
     required TResult orElse(),
   }) {
@@ -332,11 +333,11 @@ class _$_ProvinceDataOptions implements _ProvinceDataOptions {
 abstract class _ProvinceDataOptions implements LocationState {
   factory _ProvinceDataOptions(
       {required final bool isLoading,
-      required final Option<Either<String, ProvinceResponse>>
+      required final Option<Either<LocationFailure, ProvinceResponse>>
           dataProvince}) = _$_ProvinceDataOptions;
 
   bool get isLoading;
-  Option<Either<String, ProvinceResponse>> get dataProvince;
+  Option<Either<LocationFailure, ProvinceResponse>> get dataProvince;
   @JsonKey(ignore: true)
   _$$_ProvinceDataOptionsCopyWith<_$_ProvinceDataOptions> get copyWith =>
       throw _privateConstructorUsedError;

@@ -517,12 +517,12 @@ class _$ProvinceResponseCopyWithImpl<$Res, $Val extends ProvinceResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? status = freezed,
     Object? results = null,
     Object? query = null,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
@@ -563,12 +563,12 @@ class __$$ProvinceDetailResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
+    Object? status = freezed,
     Object? results = null,
     Object? query = null,
   }) {
     return _then(_$ProvinceDetailResponse(
-      null == status
+      freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as ProvinceStatusResponse,
@@ -623,7 +623,7 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProvinceDetailResponse &&
-            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other._results, _results) &&
             const DeepCollectionEquality().equals(other._query, _query));
   }
@@ -632,7 +632,7 @@ class _$ProvinceDetailResponse implements ProvinceDetailResponse {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      status,
+      const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(_results),
       const DeepCollectionEquality().hash(_query));
 

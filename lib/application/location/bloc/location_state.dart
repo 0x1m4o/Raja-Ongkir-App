@@ -4,7 +4,7 @@ part of 'location_bloc.dart';
 abstract class LocationState with _$LocationState {
   factory LocationState.initial() = Initial;
   factory LocationState.provinceDataOptions(
-          {required bool onLoading,
-          required Option<Either<String, ProvinceResponse>> dataResponse}) =
-      ProvinceDataResponse;
+      {required bool onLoading,
+      required Option<Either<LocationFailure, ProvinceResponse>>
+          dataResponse}) = ProvinceDataResponse;
 }

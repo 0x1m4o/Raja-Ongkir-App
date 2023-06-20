@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:raja_ongkir_app/domain/location/location_failure.dart';
 
 import 'package:raja_ongkir_app/domain/location/location_interface.dart';
 import 'package:raja_ongkir_app/domain/location/province.dart';
